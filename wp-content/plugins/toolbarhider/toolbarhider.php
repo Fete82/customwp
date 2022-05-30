@@ -11,4 +11,22 @@
  */
 
  /* Disable WordPress Admin Bar for all users */
+
 add_filter( 'show_admin_bar', '__return_false' );
+
+/* alternative method 
+show_admin_bar(false);
+*/
+
+add_action ('login_enqueue_scripts', 'wpc_add_style');
+
+function wpc_add_style() { 
+    ?>
+    <style type="text/css">
+        .message {
+            color: red;
+        }
+    </style>
+
+<?php 
+}
