@@ -53,9 +53,11 @@ function wcp_refresh_request()
 <div>
     <form action="" method="POST">
         <?php
-        wcp_refresh_request();
+        if(isset($_POST['submit'])) {
+            wcp_refresh_request();
+        }
         ?>
-        <button type="submit">Refresh</button>
+        <button type="submit" name='submit'>Refresh</button>
     </form>
 </div>
 <?php
