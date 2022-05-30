@@ -1,15 +1,33 @@
-<?php
+<?php if ( ! defined( 'ABSPATH' ) ) { exit; }
+
+/**
+ * Template Name: Demo Page
+ */
 
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <p>hej</p>
-</body>
-</html>
+	
+<div id="layout" class="layout-page demo-page">
+
+	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> itemtype="https://schema.org/WebPage" itemscope="itemscope">
+
+		<div class="entry-content" itemprop="text">
+
+			<div class="tile-row">
+
+				<?php // do our api calls
+				$binance= wpgetapi_endpoint( 'binance', 'price', array('debug' => false) );
+				?>
+
+				<div class="demo-tile binance">
+					<div class="internal">
+						<h2>Bitcoin Price <span>Cached for 30 seconds</span></h2>
+						<p>$<?php echo number_format( $binance['price'], 2 ); ?></p>
+					</div>
+				</div>
+
+
+			</div>
+		</div>
+	</article>
+
+</div>

@@ -18,6 +18,8 @@ add_filter( 'show_admin_bar', '__return_false' );
 show_admin_bar(false);
 */
 
+
+/* Change login message color to red */
 add_action ('login_enqueue_scripts', 'wpc_add_style');
 
 function wpc_add_style() { 
@@ -27,6 +29,5 @@ function wpc_add_style() {
             color: red;
         }
     </style>
-
 <?php 
 }
